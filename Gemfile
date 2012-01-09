@@ -8,3 +8,7 @@ group :development do
   gem 'redcarpet'
   gem 'yard'
 end
+
+group :test, :cucumber do
+  gem 'factory_girl', '~> 2.3.2'
+end
