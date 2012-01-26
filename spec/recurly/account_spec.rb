@@ -25,18 +25,6 @@ describe Account do
     end
   end
 
-  describe "#attributes=" do
-    let(:account)         { Account.new }
-    let(:attributes_hash) { { "first_name" => "test", "last_name" => "test name" } }
-
-    it "must set the attributes based on the provided hash" do
-      account.attributes.must_be_empty
-
-      account.attributes = attributes_hash
-      account.attributes.must_equal attributes_hash
-    end
-  end
-
   describe ".find" do
     it "must return an account when available" do
       stub_api_request :get, 'accounts/abcdef1234567890', 'accounts/show-200'

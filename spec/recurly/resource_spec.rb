@@ -398,17 +398,6 @@ XML
       end
     end
 
-    describe "#attributes=" do
-      let(:attributes_hash) { { "uuid" => "test", "name" => "test name" } }
-
-      it "must set the attributes based on the provided hash" do
-        record.attributes.must_be_empty
-
-        record.attributes = attributes_hash
-        record.attributes.must_equal attributes_hash
-      end
-    end
-
     describe "#uri" do
       it "must return nil for a resource where persisted is false" do
         record.uri.must_be_nil
