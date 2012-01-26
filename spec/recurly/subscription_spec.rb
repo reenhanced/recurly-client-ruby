@@ -1,33 +1,28 @@
 require 'spec_helper'
 
 describe Subscription do
-  context "attributes" do
-    subject { Subscription.new }
+  describe "attributes" do
+    subject { Subscription }
 
-    [ :uuid,
-      :state,
-      :unit_amount_in_cents,
-      :currency,
-      :quantity,
-      :activated_at,
-      :canceled_at,
-      :expires_at,
-      :current_period_started_at,
-      :current_period_ends_at,
-      :trial_started_at,
-      :trial_ends_at,
-      :pending_subscription,
-      :subscription_add_ons,
-      :coupon_code,
-      :total_billing_cycles ].each do |attribute|
-        it { should respond_to(attribute) }
+    it "has all expected attributes" do
+      expected_attributes = %w{ uuid
+                                state
+                                unit_amount_in_cents
+                                currency
+                                quantity
+                                activated_at
+                                canceled_at
+                                expires_at
+                                current_period_started_at
+                                current_period_ends_at
+                                trial_started_at
+                                trial_ends_at
+                                pending_subscription
+                                subscription_add_ons
+                                coupon_code
+                                total_billing_cycles}
 
-        it { should respond_to("#{attribute}=") }
-
-        it "allows you to set the attribute" do
-          subject.send("#{attribute}=", 'foo')
-          subject.send(attribute).should == 'foo'
-        end
+        subject.attribute_names.sort.must_equal expected_attributes.sort
       end
   end
 
